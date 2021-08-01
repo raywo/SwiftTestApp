@@ -23,7 +23,10 @@ struct ContentView: View {
           Label("Open sheet", systemImage: "plus")
         }
       }
-      .sheet(isPresented: $presentingSheet) {
+      .sheet(
+        isPresented: $presentingSheet,
+        onDismiss: { tmpEvent = Event(desc: "onDismiss Event") }
+      ) {
         NavigationView {
           VStack {
             Text("event: \(tmpEvent.desc)")
